@@ -1,6 +1,6 @@
 ﻿namespace Blog.Models
 {
-    public class Post : Model
+    public class Post
     {
         public int Id { get; set; }
 

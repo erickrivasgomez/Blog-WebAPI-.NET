@@ -21,9 +21,9 @@ namespace Blog.Controllers
 
         // GET: api/User
         [HttpGet]
-        public List<Model> Get()
+        public UserDTO Get()
         {
-            return _userService.GetUsers().Content;
+            return _userService.GetUsers();
         }
 
         // GET: api/User/5

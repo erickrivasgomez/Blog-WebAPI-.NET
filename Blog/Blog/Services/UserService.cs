@@ -12,7 +12,7 @@ namespace Blog.Services
             _userRepository = userRepository;
         }
 
-        public DTO GetUsers()
+        public UserDTO GetUsers()
         {
             return _userRepository.GetUsers();
         }

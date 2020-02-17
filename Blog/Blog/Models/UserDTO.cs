@@ -5,16 +5,16 @@ using System.Threading.Tasks;
 
 namespace Blog.Models
 {
-    public class DTO
+    public class UserDTO
     {
         public bool Error { get; set; }
 
         public string Message { get; set; }
 
-        public List<Model> Content { get; set; }
+        public List<User> Content { get; set; }
 
 #nullable enable
-        public DTO(bool error, string message, List<Model> content)
+        public UserDTO(bool error, string message, List<User> content)
         {
             this.Error = error;
             this.Message = message;
