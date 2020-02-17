@@ -9,17 +9,21 @@ namespace Blog.Models
     {
         public bool Error { get; set; }
 
-        public string Message { get; set; }
+        public List<string> Messages { get; set; }
 
         public List<User> Content { get; set; }
 
-#nullable enable
-        public UserDTO(bool error, string message, List<User> content)
+        public UserDTO()
+        {
+            this.Messages = new List<string>();
+            this.Content = new List<User>();
+        }
+
+        public UserDTO(bool error, List<string> messages, List<User> content)
         {
             this.Error = error;
-            this.Message = message;
+            this.Messages = messages;
             this.Content = content;
         }
-#nullable disable
     }
 }
