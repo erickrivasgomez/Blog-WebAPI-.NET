@@ -21,5 +21,15 @@ namespace Blog.Services
         {
             return _userRepository.AddUser(user);
         }
+
+        public UserDTO EditUser(int id, User user)
+        {
+            return _userRepository.EditUser(id, user);
+        }
+
+        public UserDTO DeleteUser(int id)
+        {
+            return _userRepository.DeleteUser(id);
+        }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using Blog.Models;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Blog.Repositories
 {
@@ -19,7 +20,7 @@ namespace Blog.Repositories
             return new UserDTO
                 (
                 error: false,
-                messages: new List<string>() { "Users" },
+                messages: new List<string>() { "User list" },
                 content: Users
                 );
         }
@@ -28,19 +29,61 @@ namespace Blog.Repositories
         {
             UserDTO response = new UserDTO();
 
-            if (Users.Exists(user => user.Id == newUser.Id))
+            User user = Users.FirstOrDefault(u => u.Id == newUser.Id);
+
+            if (user == null)
             {
-                response.Error = true;
-                response.Messages.Add("Id in use.");
-                if (Users.Exists(user => user.Email == newUser.Email))
-                {
-                    response.Messages.Add("Email already taken.");
-                }
+                Users.Add(newUser);
+                response.Error = false;
+                response.Messages = new List<string>() { "User added successfully!" };
             }
             else
             {
+                response.Error = true;
+                response.Messages = new List<string>() { "Error: Id already in use." };
+            }
+
+            return response;
+        }
+
+        public UserDTO EditUser(int id, User newUser)
+        {
+            UserDTO response = new UserDTO();
+
+            User user = Users.FirstOrDefault(u => u.Id == id);
+
+            if (user != null)
+            {
+                Users.Remove(user);
+                Users.Add(newUser);
                 response.Error = false;
-                response.Messages.Add("User added successfully");
+                response.Messages = new List<string>() { "User updated successfully!" };
+            }
+            else
+            {
+                response.Error = true;
+                response.Messages = new List<string>() { "Error: user not found" };
+            }
+            
+            return response;
+        }
+
+        public UserDTO DeleteUser(int id)
+        {
+            UserDTO response = new UserDTO();
+
+            User user = Users.FirstOrDefault(u => u.Id == id);
+
+            if (user != null)
+            {
+                Users.Remove(user);
+                response.Error = false;
+                response.Messages = new List<string>() { "User deleted successfully!" };
+            }
+            else
+            {
+                response.Error = true;
+                response.Messages = new List<string>() { "Error: user not found" };
             }
 
             return response;

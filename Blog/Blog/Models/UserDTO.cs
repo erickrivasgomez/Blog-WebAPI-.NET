@@ -9,9 +9,9 @@ namespace Blog.Models
     {
         public bool Error { get; set; }
 
-        public List<string> Messages { get; set; }
+        public IEnumerable<string> Messages { get; set; }
 
-        public List<User> Content { get; set; }
+        public IEnumerable<User> Content { get; set; }
 
         public UserDTO()
         {

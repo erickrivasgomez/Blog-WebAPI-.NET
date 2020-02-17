@@ -42,14 +42,16 @@ namespace Blog.Controllers
 
         // PUT: api/User/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        public UserDTO Put(int id, [FromBody] User user)
         {
+            return _userService.EditUser(id, user);
         }
 
         // DELETE: api/ApiWithActions/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public UserDTO Delete(int id)
         {
+            return _userService.DeleteUser(id);
         }
     }
 }
