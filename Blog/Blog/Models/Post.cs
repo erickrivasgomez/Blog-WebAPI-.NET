@@ -1,15 +1,15 @@
 ﻿namespace Blog.Models
 {
-    public class Post
+    public class Post : Model
     {
-        public int id { get; set; }
+        public int Id { get; set; }
 
-        public string title { get; set; }
+        public string Title { get; set; }
 
-        public string content { get; set; }
+        public string Content { get; set; }
         
-        public string publishedAt { get; set; }
+        public string PublishedAt { get; set; }
         
-        public int userId { get; set; }
+        public int UserId { get; set; }
     }
 }
