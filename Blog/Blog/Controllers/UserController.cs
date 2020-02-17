@@ -35,8 +35,9 @@ namespace Blog.Controllers
 
         // POST: api/User
         [HttpPost]
-        public void Post([FromBody] string value)
+        public UserDTO Post([FromBody] User user)
         {
+            return _userService.AddUser(user);
         }
 
         // PUT: api/User/5

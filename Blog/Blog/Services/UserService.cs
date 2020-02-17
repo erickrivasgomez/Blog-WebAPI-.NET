@@ -16,5 +16,10 @@ namespace Blog.Services
         {
             return _userRepository.GetUsers();
         }
+
+        public UserDTO AddUser(User user)
+        {
+            return _userRepository.AddUser(user);
+        }
     }
 }

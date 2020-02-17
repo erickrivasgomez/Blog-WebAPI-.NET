@@ -16,7 +16,35 @@ namespace Blog.Repositories
 
         public UserDTO GetUsers()
         {
-            return new UserDTO(error: false, message: "Users obtained successfully", content: Users);
+            return new UserDTO
+                (
+                error: false,
+                messages: new List<string>() { "Users" },
+                content: Users
+                );
         }
+
+        public UserDTO AddUser(User newUser)
+        {
+            UserDTO response = new UserDTO();
+
+            if (Users.Exists(user => user.Id == newUser.Id))
+            {
+                response.Error = true;
+                response.Messages.Add("Id in use.");
+                if (Users.Exists(user => user.Email == newUser.Email))
+                {
+                    response.Messages.Add("Email already taken.");
+                }
+            }
+            else
+            {
+                response.Error = false;
+                response.Messages.Add("User added successfully");
+            }
+
+            return response;
+        }
+
     }
 }
