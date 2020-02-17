@@ -8,8 +8,8 @@
 
         public string content { get; set; }
         
-        public string publishedat { get; set; }
+        public string publishedAt { get; set; }
         
-        public int userid { get; set; }
+        public int userId { get; set; }
     }
 }
