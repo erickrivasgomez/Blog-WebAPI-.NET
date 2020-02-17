@@ -11,7 +11,7 @@ namespace Blog.Repositories
             new User{ Id = 2, Name = "Us2", Email = "us2@blog.com", Password = "us2" },
             new User{ Id = 3, Name = "Us3", Email = "us3@blog.com", Password = "us3" },
             new User{ Id = 4, Name = "Us4", Email = "us4@blog.com", Password = "us4" },
-            new User{ Id = 5, Name = "Us5", Email = "us5@blog.com", Password = "us5" },
+            new User{ Id = 5, Name = "Us5", Email = "us5@blog.com", Password = "us5" }
         };
 
         public DTO GetUsers()
