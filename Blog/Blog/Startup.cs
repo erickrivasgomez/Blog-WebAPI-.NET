@@ -21,6 +21,8 @@ namespace Blog
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            services.AddSingleton<UserRepository>();
+            services.AddSingleton<UserService>();
             services.AddSingleton<PostRepository>();
             services.AddSingleton<PostService>();
         }
