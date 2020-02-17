@@ -1,6 +1,6 @@
 ﻿namespace Blog.Models
 {
-    public class User : Model
+    public class User
     {
         public int Id { get; set; }
 
