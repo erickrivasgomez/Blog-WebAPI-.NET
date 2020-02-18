@@ -54,6 +54,7 @@ namespace Blog.Repositories
 
             if (user != null)
             {
+                newUser.Id = id;
                 Users.Remove(user);
                 Users.Add(newUser);
                 response.Error = false;

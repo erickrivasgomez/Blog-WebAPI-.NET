@@ -52,8 +52,9 @@ namespace Blog.Repositories
 
             Post post = Posts.FirstOrDefault(u => u.Id == id);
 
-            if (post != null)
+            if ((post != null))
             {
+                newPost.Id = id;
                 Posts.Remove(post);
                 Posts.Add(newPost);
                 response.Error = false;
@@ -62,7 +63,7 @@ namespace Blog.Repositories
             else
             {
                 response.Error = true;
-                response.Messages = new List<string>() { "Error: post not found" };
+                response.Messages = new List<string>() { "Error: Invalid requested data." };
             }
 
             return response;
