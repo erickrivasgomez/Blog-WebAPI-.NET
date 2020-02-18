@@ -25,13 +25,15 @@ namespace Blog.Controllers
         {
             return _postService.GetPosts();
         }
-
+        
+        /*
         // GET: api/Post/5
         [HttpGet("{id}", Name = "Get")]
         public string Get(int id)
         {
             return "value";
         }
+        */
 
         // POST: api/Post
         [HttpPost]

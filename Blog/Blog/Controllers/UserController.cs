@@ -26,12 +26,14 @@ namespace Blog.Controllers
             return _userService.GetUsers();
         }
 
+        /*
         // GET: api/User/5
         [HttpGet("{id}", Name = "Get")]
         public string Get(int id)
         {
             return "value";
         }
+        */
 
         // POST: api/User
         [HttpPost]
